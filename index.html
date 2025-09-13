@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB2 - Демонстрация возможностей</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <h1>WEB2</h1>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link">Главная</a>
+                <a href="#demos" class="nav-link">Демо</a>
+                <a href="#api" class="nav-link">API</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Главная секция -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>WEB2 - Демонстрация возможностей</h2>
+                    <p>Изучай современные WEB2 технологии через интерактивные демонстрации</p>
+                    <button class="cta-button" onclick="scrollToSection('demos')">
+                        <i class="fas fa-rocket"></i>
+                        Начать изучение
+                    </button>
+                </div>
+                <div class="hero-animation">
+                    <div class="floating-element">🎬</div>
+                    <div class="floating-element">🏠</div>
+                    <div class="floating-element">🔍</div>
+                    <div class="floating-element">⚡</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция демонстраций -->
+        <section id="demos" class="demos">
+            <div class="container">
+                <h2 class="section-title">Демонстрации WEB2 функционала</h2>
+                <p class="section-subtitle">Изучай возможности современных веб-технологий на практике</p>
+                
+                <div class="demos-container">
+                    <!-- Демо 1: OMDB API -->
+                    <div class="demo-card" data-demo="1">
+                        <div class="demo-number">1</div>
+                        <div class="demo-content">
+                            <h3>🎬 OMDB API - Поиск фильмов</h3>
+                            <p><strong>Что изучаем:</strong></p>
+                            <ul>
+                                <li>Работа с внешними API</li>
+                                <li>HTTP запросы и обработка JSON</li>
+                                <li>Асинхронное программирование</li>
+                                <li>Обработка ошибок API</li>
+                            </ul>
+                            <p><strong>Функционал:</strong> Поиск фильмов по названию, отображение информации о фильме</p>
+                            <button class="start-demo-btn" onclick="startDemo(1)">Запустить демо</button>
+                        </div>
+                    </div>
+
+                    <!-- Демо 2: DaData API -->
+                    <div class="demo-card" data-demo="2">
+                        <div class="demo-number">2</div>
+                        <div class="demo-content">
+                            <h3>🏠 DaData API - Работа с адресами</h3>
+                            <p><strong>Что изучаем:</strong></p>
+                            <ul>
+                                <li>Автодополнение адресов</li>
+                                <li>Валидация данных</li>
+                                <li>Работа с геоданными</li>
+                                <li>UX для форм ввода</li>
+                            </ul>
+                            <p><strong>Функционал:</strong> Автодополнение адресов, поиск по координатам</p>
+                            <button class="start-demo-btn" onclick="startDemo(2)">Запустить демо</button>
+                        </div>
+                    </div>
+
+                    <!-- Демо 3: Комбинированное приложение -->
+                    <div class="demo-card" data-demo="3">
+                        <div class="demo-number">3</div>
+                        <div class="demo-content">
+                            <h3>🔗 Интеграция API - Полное приложение</h3>
+                            <p><strong>Что изучаем:</strong></p>
+                            <ul>
+                                <li>Комбинирование нескольких API</li>
+                                <li>Управление состоянием приложения</li>
+                                <li>Кэширование данных</li>
+                                <li>Оптимизация производительности</li>
+                            </ul>
+                            <p><strong>Функционал:</strong> Поиск кинотеатров рядом с адресом</p>
+                            <button class="start-demo-btn" onclick="startDemo(3)">Запустить демо</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Модальное окно для демо -->
+        <div id="demoModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="modalBody">
+                    <!-- Содержимое будет загружено динамически -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Секция API ключей -->
+        <section id="api" class="api-section">
+            <div class="container">
+                <h2 class="section-title">Настройка API ключей</h2>
+                <div class="api-config">
+                    <div class="api-item">
+                        <h3>🎬 OMDB API</h3>
+                        <p>Получите бесплатный ключ на <a href="http://www.omdbapi.com/apikey.aspx" target="_blank">omdbapi.com</a></p>
+                        <div class="api-input">
+                            <input type="text" id="omdbKey" placeholder="Введите ваш OMDB API ключ">
+                            <button onclick="saveApiKey('omdb', 'omdbKey')">Сохранить</button>
+                        </div>
+                    </div>
+                    <div class="api-item">
+                        <h3>🏠 DaData API</h3>
+                        <p>Получите бесплатный ключ на <a href="https://dadata.ru/api/" target="_blank">dadata.ru</a></p>
+                        <div class="api-input">
+                            <input type="text" id="dadataKey" placeholder="Введите ваш DaData API ключ">
+                            <button onclick="saveApiKey('dadata', 'dadataKey')">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 WEB2 Demo. Демонстрация современных веб-технологий.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
